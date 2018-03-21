@@ -1,4 +1,6 @@
+import java.io.ObjectOutputStream.PutField;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -9,9 +11,12 @@ public class Plateau {
 	
 	public Plateau(String size) {
 		
-		StringTokenizer st = new StringTokenizer(size, " ");
-		this.xMax = Integer.parseInt(st.nextToken());
-		this.yMax = Integer.parseInt(st.nextToken());
+		if (size.matches("-?\\d+ " + "-?\\d+")) {
+		
+			StringTokenizer st = new StringTokenizer(size, " ");
+			this.xMax = Integer.parseInt(st.nextToken());
+			this.yMax = Integer.parseInt(st.nextToken());
+		} else throw new InputMismatchException("Valores inválidos");
 		
 	}
 	
@@ -26,6 +31,18 @@ public class Plateau {
 			return true;
 		}
 		
+		else return false;
+	}
+	
+	public boolean updatePosition(String newPos) {
+		return newPosition(newPos);
+	}
+	
+	public boolean newPosition(String pos) {
+		if (pos.matches("-?\\d+ " + "-?\\d+")) {
+			occPosition.put(pos, pos);
+			return true;
+		}
 		else return false;
 	}
 	
