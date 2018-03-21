@@ -30,11 +30,11 @@ public class Rover {
 			posY = value;
 		return true;
 	}
-	
+
 	public String getPosition() {
 		return posX + " " + posY + " " + facinDir;
 	}
-	
+
 	public boolean move(String mov) {
 		int nposX = posX;
 		int nposY = posY;
@@ -45,13 +45,17 @@ public class Rover {
 			String currentPos = posX + " " + posY;
 			if (c == 'M') {
 				if (facinDir == "N")
-					nposY = posY + 1;
+					if(posY+1>p.getYMax()) return false;
+					else nposY = posY + 1;
 				else if (facinDir == "S")
-					nposY = posY - 1;
+					if(posY-1<0) return false;
+					else nposY = posY - 1;
 				else if (facinDir == "E")
-					nposX = posX + 1;
+					if(posX+1>p.getXMax()) return false;
+					else nposX = posX + 1;
 				else if (facinDir == "W")
-					nposX = posX - 1;
+					if(posX-1<0) return false;
+					else nposX = posX - 1;
 				
 				nextPos = nposX + " " + nposY;
 				if (p.updatePosition(nextPos, currentPos)) {
