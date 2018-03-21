@@ -12,7 +12,7 @@ public class Rover {
 		posY=y;
 		facinDir=dir;
 		this.p=p;
-		
+		p.update(x+" "+y);
 		
 	}
 	
