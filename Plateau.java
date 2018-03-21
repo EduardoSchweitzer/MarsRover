@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class Plateau {
 	
 	private int yMax, xMax;
-	public Map<String,String> occPosition = new HashMap<>();
+	private Map<String,String> occPosition = new HashMap<>();
 	
 	public Plateau(String size) {
 		
@@ -17,6 +17,14 @@ public class Plateau {
 			this.yMax = Integer.parseInt(st.nextToken());
 		} else throw new InputMismatchException("Valores inválidos");
 		
+	}
+	
+	public int getYMax() {
+		return this.yMax;
+	}
+	
+	public int getXMax() {
+		return this.xMax;
 	}
 	
 	private boolean checkPos(String pos) {
