@@ -1,4 +1,3 @@
-import java.io.ObjectOutputStream.PutField;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
@@ -7,7 +6,7 @@ import java.util.StringTokenizer;
 public class Plateau {
 	
 	private int yMax, xMax;
-	private Map<String,String> occPosition = new HashMap<>();
+	public Map<String,String> occPosition = new HashMap<>();
 	
 	public Plateau(String size) {
 		
